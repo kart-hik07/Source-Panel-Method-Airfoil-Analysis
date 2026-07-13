@@ -1,19 +1,27 @@
 # Source Panel Method for Airfoil Analysis
 
-(hero image)
+(hero Cp plot)
 
 ## Overview
 
+...
+
 ## Theory
+
+...
 
 ## Methodology
 
-## Implementation
+...
 
 ## Results
 
-## Limitations
-
-## Future Improvements
+...
 
 ## Skills Demonstrated
+
+...
+
+## References
+
+...
