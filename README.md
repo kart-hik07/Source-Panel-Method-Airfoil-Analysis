@@ -1,30 +1,43 @@
 # Source Panel Method for 2D Airfoil Analysis
 
+<p align="center">
+  <img src="results/cp_distribution.png" width="650">
+</p>
+
+<p align="center">
+<em>Pressure coefficient (Cp) distribution over a NACA0012 airfoil.</em>
+</p>
+
 A Python implementation of the source panel method to compute the surface pressure
-distribution (Cp) over a non-lifting 2D body — here, a NACA0012 airfoil at zero
-angle of attack.
+distribution (Cp) over a non-lifting 2D body. Here, a NACA0012 airfoil at zero
+angle of attack is being used.
 
-## What this does
 
-The source panel method models potential flow over a body by distributing source
-singularities along its surface. Each panel gets a constant source strength, solved
-for by enforcing flow tangency (zero normal velocity) at each panel's control point.
-Because sources are non-circulatory, this method captures thickness effects but
-cannot produce lift — that's what the vortex panel method is for (separate repo,
-coming soon).
+## Overview
 
-## Files
+The Source Panel Method is a numerical technique used to analyse two-dimensional, incompressible, and inviscid flow around bodies such as airfoils. The airfoil surface is divided into a number of straight panels, each represented by a constant-strength source. By enforcing the no-penetration boundary condition at every panel, the unknown source strengths are determined, allowing the surface pressure coefficient (Cp) distribution to be calculated.
 
-- `source_panel_method.py` — main script: builds the influence coefficient matrix,
-  solves for source strengths, computes surface velocity and Cp
-- `generate_naca0012.py` — generates NACA0012 coordinates using the standard NACA
-  4-digit thickness equation (cosine-spaced for better leading-edge resolution)
-- `naca0012.dat` — pre-generated airfoil coordinates (x, y pairs)
+This project implements the Source Panel Method in Python to analyse a NACA 0012 airfoil at zero angle of attack. The code reads the airfoil geometry, divides it into panels, constructs the influence coefficient matrix, solves for the source strengths, and computes the pressure coefficient distribution over the airfoil surface.
+
+## Repository Structure
+
+```text
+Source-Panel-Method-Airfoil-Analysis/
+│
+├── airfoils/
+│   └── naca0012.dat
+├── results/
+│   └── cp_distribution.png
+├── src
+    └── source_panel_method.py
+├── README.md
+├── requirements.txt
+└── LICENSE
+```
 
 ## Running it
 
 ```bash
-python generate_naca0012.py   # only needed if naca0012.dat isn't present
 python source_panel_method.py
 ```
 
@@ -36,13 +49,13 @@ For a symmetric airfoil at zero angle of attack, the stagnation point sits right
 the leading edge, where Cp should be very close to 1.0. Running this script gives:
 
 ```
-Max Cp: 0.9987  (expected close to 1.0 at the stagnation point)
+Max Cp: 0.9987  (close to 1.0 at the stagnation point)
 ```
 
 This confirms the panel method is correctly enforcing the no-penetration boundary
 condition at the surface.
 
-## Method summary
+## Methodology
 
 1. Discretize the airfoil surface into N flat panels
 2. Place a constant-strength source on each panel
@@ -52,13 +65,20 @@ condition at the surface.
 
 ## Limitations
 
-- Non-lifting only — no circulation, so this cannot predict lift or model angle of
-  attack effects on a cambered airfoil correctly
-- Inviscid — no boundary layer, so no drag or separation prediction
-- Panel count is fixed at generation time; a convergence study (Cp vs. N) would be
-  a natural next step
+- The Source Panel Method models only source singularities and therefore cannot generate circulation or predict lift.
+- It is best suited for analysing non-lifting, symmetric bodies at zero or very small angles of attack. It cannot accurately model lifting flows, cambered airfoils, or cases where the Kutta condition is required.
+- The method assumes inviscid, incompressible, and irrotational flow, so viscous effects such as boundary layer development, flow separation, and drag are not captured.
 
-## Related work
+## Skills Demonstrated
 
-A vortex panel method (adds circulation via the Kutta condition, enabling lift
-prediction) is in progress as a companion repo.
+- Python
+- NumPy
+- Linear Algebra
+- Computational Aerodynamics
+- Potential Flow Theory
+- Panel Methods
+- Scientific Computing
+- Data Visualization (Matplotlib)
+
+## References
+- J.D. Anderson, *Fundamentals of Aerodynamics*.
