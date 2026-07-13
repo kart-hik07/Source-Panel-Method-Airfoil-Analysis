@@ -1,2 +1,19 @@
-# Source-Panel-Method-Airfoil-Analysis
-Source Panel Method solver for 2D airfoil analysis using Python.
+# Source Panel Method for Airfoil Analysis
+
+(hero image)
+
+# Overview
+
+# Theory
+
+# Methodology
+
+# Implementation
+
+# Results
+
+# Limitations
+
+# Future Improvements
+
+# Skills Demonstrated
