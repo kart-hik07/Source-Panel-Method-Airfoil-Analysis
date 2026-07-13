@@ -73,11 +73,7 @@ condition at the surface.
 
 - Python
 - NumPy
-- Linear Algebra
-- Computational Aerodynamics
-- Potential Flow Theory
 - Panel Methods
-- Scientific Computing
 - Data Visualization (Matplotlib)
 
 ## References
