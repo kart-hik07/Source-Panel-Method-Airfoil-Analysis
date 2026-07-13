@@ -2,18 +2,18 @@
 
 (hero image)
 
-# Overview
+## Overview
 
-# Theory
+## Theory
 
-# Methodology
+## Methodology
 
-# Implementation
+## Implementation
 
-# Results
+## Results
 
-# Limitations
+## Limitations
 
-# Future Improvements
+## Future Improvements
 
-# Skills Demonstrated
+## Skills Demonstrated
